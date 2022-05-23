@@ -1,0 +1,2 @@
+Country Code	Region	IncomeGroup	SpecialNotes	TableName
+DEU	Europe & Central Asia	High income	\N	Germany
