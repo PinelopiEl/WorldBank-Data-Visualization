@@ -500,7 +500,7 @@ public class TheModel {
 	//Utility Functions
 	private Connection connect2Database() {
 		try {
-			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi", "root", "Enter_Code");
+			Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/wdi", "root", "Enter_SQL_Password");
 			System.out.println("Connected with the database successfully");
 			return cnx;
 		} catch (SQLException e) {
