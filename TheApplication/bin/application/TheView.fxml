@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="border" minHeight="820.0" minWidth="1200.0" prefHeight="820.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TheController">
+   <bottom>
+      <ButtonBar buttonMinWidth="60.0" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button fx:id="btnAddSeries" mnemonicParsing="false" onAction="#handleAddSeriesButton" text="Add Series" textAlignment="CENTER" />
+            <Button fx:id="btnClearSeries" minWidth="45.0" mnemonicParsing="false" onAction="#handleClearSeriesButton" text="Clear Series" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#handleCloseButton" text="Close" />
+        </buttons>
+         <opaqueInsets>
+            <Insets right="10.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </ButtonBar>
+   </bottom>
+   <left>
+      <VBox prefHeight="666.0" prefWidth="292.0" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <TitledPane text="Country">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="174.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Region" />
+                        <Label text="Income Group" GridPane.rowIndex="1" />
+                        <Label layoutX="21.0" layoutY="57.0" text="Name" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cboIncomeGroup" onAction="#handleIncomeGroupComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cboCountry" onAction="#handleCountryComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cboRegion" layoutX="118.0" layoutY="53.0" onAction="#handleRegionComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TitledPane>
+            <TitledPane text="Indicator">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Category" />
+                        <Label text="Name" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cboIndicatorCategory" onAction="#handleIndicatorCategoryComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="cboIndicator1" layoutX="121.0" layoutY="23.0" onAction="#handleIndicator1ComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label layoutX="21.0" layoutY="57.0" text="Name" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cboIndicator2" layoutX="121.0" layoutY="53.0" onAction="#handleIndicator2ComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane text="Year">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Start" />
+                        <Label text="End" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cboFromYear" onAction="#handleFromYearComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="cboToYear" onAction="#handleToYearComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane prefWidth="200.0" text="Group by">
+               <content>
+                  <HBox prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <VBox prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rboYear" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Year">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="rbgIntervals" />
+                                 </toggleGroup>
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding>
+                              </RadioButton>
+                              <RadioButton fx:id="rboLustrum" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Lustrum" toggleGroup="$rbgIntervals">
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding></RadioButton>
+                              <RadioButton fx:id="rboDecade" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Decade" toggleGroup="$rbgIntervals">
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding></RadioButton>
+                              <RadioButton fx:id="rboVicennial" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Vicennial" toggleGroup="$rbgIntervals" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefWidth="100.0" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rboValue" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Value">
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="rbgFunctions" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rboSum" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Sum" toggleGroup="$rbgFunctions">
+                                 <padding>
+                                    <Insets bottom="1.0" />
+                                 </padding></RadioButton>
+                              <RadioButton fx:id="rboAverage" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleRadioButtonsAction" text="Average" toggleGroup="$rbgFunctions" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </TitledPane>
+            <TitledPane text="Chart">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Type" />
+                        <ComboBox fx:id="cboChartType" onAction="#handleChartTypeComboBoxAction" prefWidth="200.0" GridPane.columnIndex="1" />
+                        <TextArea fx:id="txtChartTitle" prefHeight="50.0" prefWidth="200.0" promptText="Enter chart title" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets top="5.0" />
+                           </GridPane.margin>
+                        </TextArea>
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+            <TitledPane layoutX="10.0" layoutY="609.0" text="Series">
+               <content>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextArea fx:id="txtSeriesTitle" prefHeight="50.0" prefWidth="200.0" promptText="Enter series title" wrapText="true" GridPane.columnSpan="2" />
+                     </children>
+                  </GridPane>
+               </content>
+            </TitledPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <LineChart fx:id="chart" BorderPane.alignment="CENTER">
+        <xAxis>
+          <CategoryAxis animated="false" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis animated="false" side="LEFT" />
+        </yAxis>
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </LineChart>
+   </center>
+</BorderPane>
