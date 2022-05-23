@@ -18,3 +18,6 @@ The TheApplication/ contains the JavaFX project.It must be opened in Eclipse and
 2)	mysql-connector-java-8.0.28
 
  The TheApplication /src/application/ folder contains the frontend code .
+
+deliverables/
+folder containing the report and DEMO video of the project 
