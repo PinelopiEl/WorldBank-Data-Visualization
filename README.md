@@ -18,6 +18,10 @@ The TheApplication/ contains the JavaFX project.It must be opened in Eclipse and
 2)	mysql-connector-java-8.0.28
 
  The TheApplication /src/application/ folder contains the frontend code .
+ Important Note!
+ In WorldBank-Data-Visualization/TheApplication/src/application/TheModel.java in function connect2Database() ,
+ the string "Enter_SQL_Password" at getConnection must be filled with the password from mySQL.
+ 
 
 deliverables/
 folder containing the report and DEMO video of the project 
